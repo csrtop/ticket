@@ -1,0 +1,38 @@
+<%= form_for [@tarea, @tarea.comentarios.build], :html => { :class => "form-horizontal comentario" } do |f| %>
+
+
+
+  <div class="form-group">
+    <%= f.label :comentario, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_area :comentario, :class => 'form-control', placeholder: "Escriba un Comentario ..." %>
+    </div>
+    <%=f.error_span(:comentario) %>
+  </div>
+
+
+ <div class="form-group">
+    <%#= f.label :tarea_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.hidden_field :tarea_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:tarea_id) %>
+  </div>
+  <div class="form-group">
+    <%#= f.label :user_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.hidden_field :user_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:user_id) %>
+  </div>
+
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%#= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                comentarios_path, :class => 'btn btn-default' %>
+    </div>
+  </div> 
+
+<% end %>

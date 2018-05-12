@@ -1,0 +1,31 @@
+
+<div class="page-header">
+  <h1>Tareas cerradas</h1>
+</div>
+
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= (:dempleado_id) %></th>
+      <th><%= (:tipo_id) %></th>
+      <th><%= (:estado_id) %></th>
+      <th><%= (:prioridad_id) %></th>
+      <th><%= (:comentario) %></th>
+      <th><%= (:created_at) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tareas.each do |tarea| %>
+      <tr>
+        <td><%= tarea.empleado.empleado %></td>
+        <td><%= tarea.tipo.tipo %></td>
+        <td><%= tarea.estado.estado %></td>
+        <td><%= tarea.prioridad.prioridad %></td>
+        <td><%= tarea.comentario %></td>
+        <td><%=l tarea.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

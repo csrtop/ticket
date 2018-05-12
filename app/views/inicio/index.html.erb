@@ -1,0 +1,13 @@
+
+
+<% if user_signed_in? %>
+	<ALIGN="right">
+	<!-- <font size=5><B><I>Bienvenido <%= current_user.email %></i></b></font> -->
+	<div class="page-header">
+  <h1>Ingreso de nuevas tareas !!</h1>
+</div>
+	<p>...</p>
+	<p><a class="btn btn-primary btn-lg" href="/tareas" role="button"> Ver Tareas </a></p>
+<%else%>
+<%end %>
+

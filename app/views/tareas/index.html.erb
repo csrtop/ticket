@@ -1,0 +1,67 @@
+<%- model_class = Tarea -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+
+<!-- no funciono
+<%#= search_form_for @q do |f| %>
+
+  <div class="field">
+    <%#= f.label :empleado_id, "Nombre de empleado" %>
+    <%#= f.search_field :empleado_id %>
+  </div>
+  <div class="actions"><%#= f.submit %>
+  </div>
+
+<% #end %> 
+#no funciono -->
+<%= will_paginate @tareas %>
+<!-- <input class="form-control" id="empleado" type="text" placeholder="Buscar.."> -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <!-- <th><%= model_class.human_attribute_name(:id) %></th> -->
+      <th><%= model_class.human_attribute_name(:empleado_id) %></th>
+      <th><%#= model_class.human_attribute_name(:tipo_id) %></th>
+      <th><%= model_class.human_attribute_name(:estado_id) %></th>
+      <th><%= model_class.human_attribute_name(:prioridad_id) %></th>
+      <th><%= model_class.human_attribute_name(:Problema) %></th>
+      <th><%= model_class.human_attribute_name(:Activo_desde) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tareas.each do |tarea| %>
+      <tr>
+        <!-- <td><%= link_to tarea.id, tarea_path(tarea) %></td> -->
+        <td><%= link_to tarea.empleado.empleado, tarea_path(tarea) %></td>
+        <td><%#= tarea.tipo.tipo %></td>
+        <td><%= tarea.estado.estado %></td>
+        <td><%= tarea.prioridad.prioridad %></td>
+        <td><%= link_to truncate(tarea.comentario, length:21), tarea_path(tarea) %></td>
+        <td><%= time_ago_in_words(tarea.created_at) %></td>
+        <!--<td><%=l tarea.created_at %></td>-->
+        <td>
+
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      tarea_path(tarea), :class => 'btn btn-success btn-xs' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_tarea_path(tarea), :class => 'btn btn-warning btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      tarea_path(tarea),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+
+  </tbody>
+<th> </th>
+</table>
+<br><%= will_paginate @tareas %> </br>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_tarea_path, :remote=>true,
+            :class => 'btn btn-primary' %>
+<div id="new-tarea" style="display: none;"></div>

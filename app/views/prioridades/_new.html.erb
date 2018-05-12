@@ -1,0 +1,55 @@
+<div id="myModal2" class="modal fade" tabindex="-1" >
+  <div class="modal-dialog">
+  
+  <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Crear Nueva Prioridad</h4>
+      </div>
+      <div class="modal-body">
+
+<%= form_for @prioridad, :html => { :class => "form-horizontal prioridad" } do |f| %>
+
+  <% if @prioridad.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@prioridad.errors.count, "error") %> prohibited this prioridad from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @prioridad.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :prioridad, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :prioridad, :class => 'form-control'%>
+    </div>
+    <%=f.error_span(:prioridad) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                prioridades_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>
+
+
+
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>

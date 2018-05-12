@@ -1,0 +1,99 @@
+<%- model_class = Tarea -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+<!-- Creado por: <%= @tarea.user_id %> -->
+<dl class="dl-horizontal">
+  <dt><strong><h3><%= model_class.human_attribute_name(:problema) %>:</h3></strong></dt>
+  <dd><h3><%= @tarea.comentario %></h3></dd>
+  <dt><strong><%= model_class.human_attribute_name(:empleado_id) %>:</strong></dt>
+  <dd><%= @tarea.empleado.empleado %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tipo_id) %>:</strong></dt>
+  <dd><%= @tarea.tipo.tipo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estado_id) %>:</strong></dt>
+  <dd><%= @tarea.estado.estado %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:prioridad_id) %>:</strong></dt>
+  <dd><%= @tarea.prioridad.prioridad %></dd>
+</dl>
+    
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              tareas_path, :class => 'btn btn-default'  %>
+
+<%#= link_to t('.show', :default => t("helpers.links.show")),
+              tarea_comentarios_path(@tarea.id), :class => 'btn btn-default' %>
+
+<%#= link_to t('.new comentario', :default => t("helpers.links.new comentario")),
+              new_tarea_comentario_path(tarea_id: @tarea.id), :class => 'btn btn-default' %>
+              
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_tarea_path(@tarea), :class => 'btn btn-warning' %>
+
+
+<h3>
+Comentarios en esta tarea : <%= @tarea.comentarios.count%>  
+<%#= link_to "#{@tarea.comentarios.count}"%>  
+</h3>
+
+<!-- inserta tabla en show -->
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:comentario) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tarea.comentarios.each do |comentario| %>
+      <tr>
+        <td><%= comentario.comentario %></td>
+        <td><%= comentario.user.email %></td>
+        <td><%=l comentario.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!--fin inserta tabla en show  -->
+
+
+
+<%#=render 'comentarios/form' %>
+
+<%= form_for [@tarea, @tarea.comentarios.new] do |f| %>
+  <fieldset>
+    <ol>
+      <%= f.text_area :comentario, :class => 'form-control', placeholder: "Escriba un Comentario ..." %>
+      <div class="form-group">
+      
+      <br><%= f.submit nil, :class => 'btn btn-success' %></th></br>
+      <%#=render 'comentarios/form' %>    
+      </div>
+    </ol>
+  </fieldset>
+<% end %>
+
+
+
+
+
+
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              tareas_path, :class => 'btn btn-default'  %>
+
+<%#= link_to t('.show', :default => t("helpers.links.show")),
+              tarea_comentarios_path(@tarea.id), :class => 'btn btn-default' %>
+
+<%#= link_to t('.new comentario', :default => t("helpers.links.new comentario")),
+              new_tarea_comentario_path(tarea_id: @tarea.id), :class => 'btn btn-default' %>
+              
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_tarea_path(@tarea), :class => 'btn btn-warning' %>
+<%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              tarea_path(@tarea),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+
+

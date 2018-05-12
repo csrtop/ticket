@@ -1,0 +1,23 @@
+<h1>Reporte de tareas</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<th style="width: 50px,">Empleado</th>
+				<th style="width: 50px,">Estado</th>
+				<th style="width: 50px,">Prioridad</th>
+				<th style="width: 50px,">Problema</th>
+				<th style="width: 50px,">Activo desde</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @tareas.each do |tarea| %>
+			<tr>
+				<td><%= tarea.empleado.empleado %></td>
+				<td><%= tarea.estado.estado %></td>
+				<td><%= tarea.prioridad.prioridad %></td>
+				<td><%= tarea.comentario %></td>
+				<td><%= time_ago_in_words(tarea.created_at) %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
