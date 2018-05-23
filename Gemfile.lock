@@ -252,7 +252,7 @@ DEPENDENCIES
   jquery-rails
   less-rails-bootstrap
   listen (>= 3.0.5, < 3.2)
-  mysql2 (>= 0.3.18, < 0.5)
+  mysql2 (>= 0.3.18)
   puma (~> 3.7)
   rails (~> 5.1.4)
   rails_bootstrap_navbar
@@ -276,4 +276,4 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 BUNDLED WITH
-   1.16.0
+   1.16.1
