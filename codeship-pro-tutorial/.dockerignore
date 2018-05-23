@@ -1,0 +1,5 @@
+.git
+Dockerfile
+Readme.md
+codeship-services.yml
+codeship-steps.yml
