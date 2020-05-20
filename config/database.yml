@@ -51,10 +51,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: ticket_production
-  username: ticket
-  password: <%= ENV['TICKET_DATABASE_PASSWORD'] %>
-  username: root
-  password: toor

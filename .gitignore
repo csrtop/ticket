@@ -17,3 +17,7 @@
 /yarn-error.log
 
 .byebug_history
+
+/config/master.key
+/config/deploy-secrets.yml
+/config/database.yml

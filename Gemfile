@@ -46,14 +46,16 @@ gem 'sass-rails', '~> 5.0'
 gem 'sass', '~> 3.5', '>= 3.5.3'
 gem 'railties', '~> 5.1', '>= 5.1.4'
 gem 'ransack'
-gem 'wicked_pdf'
+gem 'wicked_pdf' 
 gem 'wkhtmltopdf-binary'
 gem 'will_paginate', '~> 3.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-
+#GEMS PARA DEPLOY
+gem 'rack-cors'
+gem 'unicorn'
+#GEMS PARA DEPLOY
 
 group :development, :test do
   gem 'mysql2', '>= 0.3.18'
@@ -72,6 +74,17 @@ group :development do
   gem 'spring'
   gem 'mysql2', '>= 0.3.18'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  #gems para deploy
+    gem 'capistrano', '~> 3.4.0'
+    gem 'capistrano-bundler'
+    gem 'capistrano-rails', github: 'capistrano/rails'
+    gem 'capistrano-rails-console'
+    gem 'capistrano-sidekiq'
+    gem 'rvm1-capistrano3', require: false
+    gem 'airbrussh', require: false
+    #GEMS PARA DEPLOY
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
