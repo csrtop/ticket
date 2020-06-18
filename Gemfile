@@ -76,7 +76,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   #gems para deploy
-    gem 'capistrano', '~> 3.4.0'
+    gem 'capistrano', '3.4.0'
+    gem 'capistrano-ssh-doctor', '~> 1.0'
     gem 'capistrano-bundler'
     gem 'capistrano-rails', github: 'capistrano/rails'
     gem 'capistrano-rails-console'
